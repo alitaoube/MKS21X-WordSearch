@@ -52,11 +52,14 @@ public class WordSearch{
       if (data[row].length - word.length() < 0){
         return false;
       }
-        for (int y = col; y < data[y].length; y++){
-          for (int z = 0; z < word.length(); z++){
-            data[row][y] = word.charAt(z);
-          }
+      for (int x = 0; x < word.length(); x++){
+        if (data[row][x] == '_' || data[row][x] == word.charAt(x)){
+          data[row][x] = word.charAt(x);
         }
+        else{
+          return false;
+        }
+      }
       return true;
     }
 
