@@ -103,7 +103,6 @@ public class WordSearch{
   */
  public boolean addWordDiagonal(String word,int row, int col){
    if (col + word.length() > data[row].length || row + word.length() > data.length){
-     System.out.println("Test");
      return false;
    }
    for (int x = 0; x < word.length(); x++){
@@ -111,7 +110,7 @@ public class WordSearch{
        return false;
      }
    }
-   for (int i = 0; i < data.length && i < data[i].length; i++){
+   for (int i = 0; i < word.length(); i++){
      data[row+i][col+i] = word.charAt(i);
  }
   return true;
