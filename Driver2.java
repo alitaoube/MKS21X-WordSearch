@@ -2,6 +2,10 @@ public class Driver2{
   public static void main(String[] args){
     WordSearch first = new WordSearch(8, 5);
 
+    System.out.println("Testing add no diagonally  starting on row 0 column 6, should return true");
+    System.out.println(first.addWordDiagonal("no", 1, 1));
+    System.out.println(first.toString());
+
     System.out.println("---Testing Constructor---");
     System.out.println("testing toString: should print a 8-by-5 empty word search");
     System.out.println(first.toString());
