@@ -31,6 +31,32 @@ public class WordSearch{
        clear();
     }
 
+    public void foo(String fileName) throws FileNotFoundException{
+      File f = new File(fileName);//can combine
+      Scanner in = new Scanner(f);//into one line
+      String[] output= new String[100];
+
+      int x = 0;
+    //NOW read the file here...
+      while(in.hasNext()){
+        x++;
+      }
+      wordsToAdd = new ArrayList(x);
+      while(in.hasNext()){
+        wordsToAdd.add(in.next());
+      }
+    }
+
+
+
+    public String getWords(){
+      String words = "";
+      for (int x = 0; x < wordsToAdd.size(); x++){
+        words += wordsToAdd.get(x);
+      }
+      return words;
+    }
+
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear(){
       for (int x = 0; x < data.length; x++){
