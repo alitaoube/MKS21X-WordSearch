@@ -27,13 +27,14 @@ public class WordSearch{
     public WordSearch(int rows, int cols, String fileName){
        data = new char[rows][cols];
        randgen = new Random();
+       seed = randgen.nextInt();
        foo(fileName);
        clear();
     }
 
     public WordSearch(int rows, int cols, String filename, int Randseed){
       data = new char[rows][cols];
-      randgen = Random(Randseed);
+      randgen = new Random(Randseed);
     }
 
     public String addWords(String fileName) throws FileNotFoundException{
