@@ -113,6 +113,18 @@ public class WordSearch{
     */
 
 
+    private boolean addAllWords(){
+      for (int x = 0; x < wordsToAdd.size(); x++){
+        String word = wordsToAdd.get(randgen.nextInt(wordsToAdd.size()));
+        int y = 0;
+        while(!addWord(word, randgen.nextInt(data.length),
+        randgen.nextInt(data[0].length), randgen.nextInt() % 2, randgen.nextInt() % 2) || y < 1000){
+          addWord(word, randgen.nextInt(data.length),
+          randgen.nextInt(data[0].length), randgen.nextInt() % 2, randgen.nextInt() % 2);
+        }
+      }
+      return true;
+    }
 
     /**Each row is a new line, there is a space between each letter
      *@return a String with each character separated by spaces, and rows
