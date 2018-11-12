@@ -91,20 +91,17 @@ public class WordSearch{
     *        false when: the word doesn't fit, OR  rowchange and colchange are both 0,
     *        OR there are overlapping letters that do not match
     */
-    public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
-        rowIncrement = randgen.nextInt() % 2;
-        colIncrement = randgen.nextInt() % 2;
-
-        if (col + word.length() > data[row].length || row + word.length() > data.length){
+    private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+        if (col + word.length() * colIncrement > data[row].length || row + word.length() * rowIncrement > data.length){
           return false;
         }
         for (int x = 0; x < word.length(); x++){
-          if (data[row+x][col+x] != '_' && data[row + x][col+x] != word.charAt(x)){
+          if (data[row+x*rowIncrement][col+x*colIncrement] != '_' && data[row+x*rowIncrement][col+x*colIncrement] != word.charAt(x)){
             return false;
           }
         }
         for (int i = 0; i < word.length(); i++){
-          data[row+i][col+i] = word.charAt(i);
+          data[row+i*rowIncrement][col+i*colIncrement] = word.charAt(i);
         }
         return true;
     }
@@ -123,7 +120,6 @@ public class WordSearch{
      */
     public String toString(){
       String output = "";
-      output += "To reproduce this puzzle use this seed:" + seed + " ";
       for (int x = 0; x < data.length; x++){
         output += "[";
         for (int y = 0; y < data[x].length; y++){
@@ -136,6 +132,7 @@ public class WordSearch{
       for (int x = 0; x < wordsToAdd.size(); x++){
         output += wordsToAdd.get(x);
       }
+      output += "seed: " + seed;
       return output;
     }
 
