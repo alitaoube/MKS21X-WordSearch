@@ -31,6 +31,7 @@ public class WordSearch{
          Scanner in = new Scanner(f);//into one line
          randgen = new Random();
          seed = randgen.nextInt();
+
          while(in.hasNext()){
            wordsToAdd = new ArrayList<String>();
            String line = in.nextLine();
@@ -46,18 +47,26 @@ public class WordSearch{
 
 
 
-    public WordSearch(int rows, int cols, String filename, int Randseed){
+    public WordSearch(int rows, int cols, String fileName, int Randseed){
       data = new char[rows][cols];
       randgen = new Random(Randseed);
-    }
+      try{
+        File f = new File(fileName);//can combine
+        Scanner in = new Scanner(f);//into one line
+        randgen = new Random(Randseed);
+        seed = randgen.nextInt();
 
-    public void addToList(String fileName) throws FileNotFoundException{
-      File f = new File(fileName);//can combine
-      Scanner in = new Scanner(f);//into one line
-
-      while (in.hasNext()){
-        wordsToAdd.add(in.next());
+        while(in.hasNext()){
+          wordsToAdd = new ArrayList<String>();
+          String line = in.nextLine();
+          wordsToAdd.add(line);
+        }
       }
+      catch(FileNotFoundException e){
+       System.out.println("File not found: " + fileName);
+       System.exit(1);
+      }
+      clear();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -83,6 +92,21 @@ public class WordSearch{
     *        OR there are overlapping letters that do not match
     */
     public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+        rowIncrement = randgen.nextInt() % 2;
+        colIncrement = randgen.nextInt() % 2;
+
+        if (col + word.length() > data[row].length || row + word.length() > data.length){
+          return false;
+        }
+        for (int x = 0; x < word.length(); x++){
+          if (data[row+x][col+x] != '_' && data[row + x][col+x] != word.charAt(x)){
+            return false;
+          }
+        }
+        for (int i = 0; i < word.length(); i++){
+          data[row+i][col+i] = word.charAt(i);
+        }
+        return true;
     }
 
    /*[rowIncrement,colIncrement] examples:
