@@ -71,12 +71,37 @@ public class WordSearch{
       }
     }
 
+    /**Attempts to add a given word to the specified position of the WordGrid.
+    *The word is added in the direction rowIncrement,colIncrement
+    *Words must have a corresponding letter to match any letters that it overlaps.
+    *
+    *@param word is any text to be added to the word grid.
+    *@param row is the vertical locaiton of where you want the word to start.
+    *@param col is the horizontal location of where you want the word to start.
+    *@param rowIncrement is -1,0, or 1 and represents the displacement of each letter in the row direction
+    *@param colIncrement is -1,0, or 1 and represents the displacement of each letter in the col direction
+    *@return true when: the word is added successfully.
+    *        false when: the word doesn't fit, OR  rowchange and colchange are both 0,
+    *        OR there are overlapping letters that do not match
+    */
+    public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+    }
+
+   /*[rowIncrement,colIncrement] examples:
+    *[-1,1] would add up and the right because (row -1 each time, col + 1 each time)
+    *[ 1,0] would add downwards because (row+1), with no col change
+    *[ 0,-1] would add towards the left because (col - 1), with no row change
+    */
+
+
+
     /**Each row is a new line, there is a space between each letter
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
     public String toString(){
       String output = "";
+      output += "To reproduce this puzzle use this seed:" + seed + " ";
       for (int x = 0; x < data.length; x++){
         output += "[";
         for (int y = 0; y < data[x].length; y++){
