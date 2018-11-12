@@ -37,13 +37,12 @@ public class WordSearch{
       randgen = new Random(Randseed);
     }
 
-    public String addWords(String fileName) throws FileNotFoundException{
+    public void addToList(String fileName) throws FileNotFoundException{
       File f = new File(fileName);//can combine
       Scanner in = new Scanner(f);//into one line
-      String words = " ";
 
       while (in.hasNext()){
-        words += in.next();
+        wordsToAdd.add(in.next());
       }
     }
 
