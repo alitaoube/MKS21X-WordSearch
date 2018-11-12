@@ -26,15 +26,29 @@ public class WordSearch{
 
     public WordSearch(int rows, int cols, String fileName){
        data = new char[rows][cols];
-       File f = new File(fileName);//can combine
-       Scanner in = new Scanner(f);//into one line
+       randgen = new Random();
+       foo(fileName);
        clear();
+    }
+
+    public WordSearch(int rows, int cols, String filename, int Randseed){
+      data = new char[rows][cols];
+      randgen = Random(Randseed);
+    }
+
+    public String addWords(String fileName) throws FileNotFoundException{
+      File f = new File(fileName);//can combine
+      Scanner in = new Scanner(f);//into one line
+      String words = " ";
+
+      while (in.hasNext()){
+        words += in.next();
+      }
     }
 
     public void foo(String fileName) throws FileNotFoundException{
       File f = new File(fileName);//can combine
       Scanner in = new Scanner(f);//into one line
-      String[] output= new String[100];
 
       int x = 0;
     //NOW read the file here...
@@ -45,16 +59,6 @@ public class WordSearch{
       while(in.hasNext()){
         wordsToAdd.add(in.next());
       }
-    }
-
-
-
-    public String getWords(){
-      String words = "";
-      for (int x = 0; x < wordsToAdd.size(); x++){
-        words += wordsToAdd.get(x);
-      }
-      return words;
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -73,11 +77,16 @@ public class WordSearch{
     public String toString(){
       String output = "";
       for (int x = 0; x < data.length; x++){
+        output += "[";
         for (int y = 0; y < data[x].length; y++){
           output += data[x][y];
           output += " ";
         }
+        output += "]";
         output += "\n";
+      }
+      for (int x = 0; x < wordsToAdd.size(); x++){
+        output += wordsToAdd.get(x);
       }
       return output;
     }
