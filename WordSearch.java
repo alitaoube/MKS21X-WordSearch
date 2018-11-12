@@ -26,11 +26,25 @@ public class WordSearch{
 
     public WordSearch(int rows, int cols, String fileName){
        data = new char[rows][cols];
-       randgen = new Random();
-       seed = randgen.nextInt();
-       foo(fileName);
+       try{
+         File f = new File(fileName);//can combine
+         Scanner in = new Scanner(f);//into one line
+         randgen = new Random();
+         seed = randgen.nextInt();
+         while(in.hasNext()){
+           wordsToAdd = new ArrayList<String>();
+           String line = in.nextLine();
+           wordsToAdd.add(line);
+         }
+       }
+       catch(FileNotFoundException e){
+        System.out.println("File not found: " + fileName);
+        System.exit(1);
+      }
        clear();
     }
+
+
 
     public WordSearch(int rows, int cols, String filename, int Randseed){
       data = new char[rows][cols];
@@ -42,21 +56,6 @@ public class WordSearch{
       Scanner in = new Scanner(f);//into one line
 
       while (in.hasNext()){
-        wordsToAdd.add(in.next());
-      }
-    }
-
-    public void foo(String fileName) throws FileNotFoundException{
-      File f = new File(fileName);//can combine
-      Scanner in = new Scanner(f);//into one line
-
-      int x = 0;
-    //NOW read the file here...
-      while(in.hasNext()){
-        x++;
-      }
-      wordsToAdd = new ArrayList(x);
-      while(in.hasNext()){
         wordsToAdd.add(in.next());
       }
     }
