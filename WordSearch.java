@@ -121,29 +121,62 @@ public class WordSearch{
     *[ 0,-1] would add towards the left because (col - 1), with no row change
     */
 
-
+/*
     private boolean addAllWords(){
+      ArrayList<String> test = new ArrayList<String>();
+      test = wordsToAdd;
+      ArrayList<Integer> used = new ArrayList<Integer>();
       for (int x = 0; x < wordsToAdd.size(); x++){
         for (int y = 0; y < 1000; y++){
+
           String word = wordsToAdd.get(randgen.nextInt(wordsToAdd.size()));
-          int z = 0;
+          // int z = 0;
           int randRow = randgen.nextInt(data.length);
           int randCol = randgen.nextInt(data[0].length);
           int randRowIncr = randgen.nextInt() % 2;
           int randColIncr = randgen.nextInt() % 2;
+
+          if (addWord(word,randRow,randCol,randRowIncr, randColIncr)){
+            // addWord(word,randRow,randCol,randRowIncr, randColIncr);
+            y = 1000;
+          }
           // System.out.println(randRow + " " + randCol + " " + randRowIncr + " " + randColIncr);
           // String word,int row, int col, int rowIncrement, int colIncrement;
           // System.out.println(randgen.nextInt(data.length));
           // System.out.println(randgen.nextInt(data[0].length));
-          while(!addWord(word,randRow,randCol,randRowIncr, randColIncr) && z < 1000) {
-            z++;
-            addWord(word,randRow,randCol,randRowIncr, randColIncr);
-          }
+          // while(!addWord(word,randRow,randCol,randRowIncr, randColIncr) && z < 1000 && !wordsAdded.contains(word)) {
+            // z++;
+            // addWord(word,randRow,randCol,randRowIncr, randColIncr);
+          // }
         }
       }
       return true;
     }
+*/
+    private void addAllWords(){
+      ArrayList<String> words = new ArrayList<String>();
+      words = wordsToAdd;
+        for (int x = 0; x < words.size(); x++){
+          String word = words.get(randgen.nextInt(words.size()));
+          int y = 0;
+          while (y < 1000 && words.contains(word)){
+            int randRow = randgen.nextInt(data.length);
+            int randCol = randgen.nextInt(data[0].length);
+            int randRowIncr = randgen.nextInt() % 2;
+            int randColIncr = randgen.nextInt() % 2;
 
+            int z = 0;
+            while (words.contains(word) && z < 1000){
+              if (addWord(word,randRow,randCol,randRowIncr, randColIncr)){
+                z = 1000;
+                words.remove(word);
+              }
+              z++;
+          }
+          y++;
+          }
+      }
+    }
     /**Each row is a new line, there is a space between each letter
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.

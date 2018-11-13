@@ -1,8 +1,8 @@
 public class Driver{
   public static void main(String[] args) {
-    // WordSearch test = new WordSearch(25, 25, "words.txt");
-    // System.out.println(test.toString());
-    WordSearch test1 = new WordSearch(25, 25, "words.txt", 1842044245);
+    WordSearch test = new WordSearch(25, 25, "words.txt");
+    System.out.println(test.toString());
+    WordSearch test1 = new WordSearch(25, 25, "words.txt", -1578864469);
     System.out.println(test1.toString());
   }
 }
