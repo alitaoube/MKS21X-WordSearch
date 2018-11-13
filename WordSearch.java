@@ -156,10 +156,11 @@ public class WordSearch{
     private void addAllWords(){
       ArrayList<String> words = new ArrayList<String>();
       words = wordsToAdd;
+      System.out.println(words);
         for (int x = 0; x < words.size(); x++){
           String word = words.get(randgen.nextInt(words.size()));
           int y = 0;
-          while (y < 1000 && words.contains(word)){
+          while (y < 1000){
             int randRow = randgen.nextInt(data.length);
             int randCol = randgen.nextInt(data[0].length);
             int randRowIncr = randgen.nextInt() % 2;
@@ -168,13 +169,14 @@ public class WordSearch{
             int z = 0;
             while (words.contains(word) && z < 1000){
               if (addWord(word,randRow,randCol,randRowIncr, randColIncr)){
-                z = 1000;
                 words.remove(word);
               }
               z++;
           }
           y++;
           }
+          words.remove(word);
+          x--;
       }
     }
     /**Each row is a new line, there is a space between each letter
