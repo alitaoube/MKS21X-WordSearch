@@ -95,8 +95,9 @@ public class WordSearch{
         if (rowIncrement == 0 && colIncrement == 0){
           return false;
         }
-        if (row + rowIncrement * word.length() > data.length || row + rowIncrement * word.length() < 0 ||
-            col + colIncrement * word.length() > data[row].length || col + colIncrement * word.length() < 0){
+        if (row + rowIncrement * word.length() > data.length ||
+            col + colIncrement * word.length() > data[row].length || col + colIncrement * word.length() < 0 ||
+            row + rowIncrement * word.length() < 0){
           return false;
         }
         for (int x = 0; x < word.length(); x++){
@@ -122,10 +123,17 @@ public class WordSearch{
       for (int x = 0; x < wordsToAdd.size(); x++){
         String word = wordsToAdd.get(randgen.nextInt(wordsToAdd.size()));
         int y = 0;
-        while(!addWord(word, randgen.nextInt(data.length),
-        randgen.nextInt(data[0].length), randgen.nextInt() % 2, randgen.nextInt() % 2) || y < 1000){
+        // String word,int row, int col, int rowIncrement, int colIncrement;
+        // System.out.println(randgen.nextInt(data.length));
+        // System.out.println(randgen.nextInt(data[0].length));
+        while(!addWord(word, randgen.nextInt(data.length),randgen.nextInt(data[0].length),
+        randgen.nextInt() % 2, randgen.nextInt() % 2) && y < 10) {
+          y++;
+          // System.out.println("hello");
           addWord(word, randgen.nextInt(data.length),
           randgen.nextInt(data[0].length), randgen.nextInt() % 2, randgen.nextInt() % 2);
+          // System.out.println("bye");
+
         }
       }
       return true;
