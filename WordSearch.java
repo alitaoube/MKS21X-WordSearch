@@ -36,13 +36,13 @@ public class WordSearch{
            String line = in.nextLine();
            wordsToAdd.add(line);
          }
+         clear();
+         addAllWords();
        }
        catch(FileNotFoundException e){
         System.out.println("File not found: " + fileName);
         System.exit(1);
       }
-       clear();
-       addAllWords();
     }
 
 
@@ -92,8 +92,11 @@ public class WordSearch{
     *        OR there are overlapping letters that do not match
     */
     private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
-        if (row + rowIncrement * (word.length() - 1) > data.length||
-            col + colIncrement * (word.length() - 1)> data[row].length){
+        if (rowIncrement == 0 && colIncrement == 0){
+          return false;
+        }
+        if (row + rowIncrement * word.length() > data.length || row + rowIncrement * word.length() < 0 ||
+            col + colIncrement * word.length() > data[row].length || col + colIncrement * word.length() < 0){
           return false;
         }
         for (int x = 0; x < word.length(); x++){
