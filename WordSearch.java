@@ -31,9 +31,8 @@ public class WordSearch{
          Scanner in = new Scanner(f);//into one line
          randgen = new Random();
          seed = randgen.nextInt();
-
+         wordsToAdd = new ArrayList<String>();
          while(in.hasNext()){
-           wordsToAdd = new ArrayList<String>();
            String line = in.nextLine();
            wordsToAdd.add(line);
          }
@@ -43,6 +42,7 @@ public class WordSearch{
         System.exit(1);
       }
        clear();
+       addAllWords();
     }
 
 
@@ -55,9 +55,8 @@ public class WordSearch{
         Scanner in = new Scanner(f);//into one line
         randgen = new Random(Randseed);
         seed = randgen.nextInt();
-
+        wordsToAdd = new ArrayList<String>();
         while(in.hasNext()){
-          wordsToAdd = new ArrayList<String>();
           String line = in.nextLine();
           wordsToAdd.add(line);
         }
@@ -67,6 +66,7 @@ public class WordSearch{
        System.exit(1);
       }
       clear();
+      addAllWords();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -92,11 +92,13 @@ public class WordSearch{
     *        OR there are overlapping letters that do not match
     */
     private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
-        if (col + word.length() * colIncrement > data[row].length || row + word.length() * rowIncrement > data.length){
+        if (row + rowIncrement * (word.length() - 1) > data.length||
+            col + colIncrement * (word.length() - 1)> data[row].length){
           return false;
         }
         for (int x = 0; x < word.length(); x++){
-          if (data[row+x*rowIncrement][col+x*colIncrement] != '_' && data[row+x*rowIncrement][col+x*colIncrement] != word.charAt(x)){
+          if (data[row + rowIncrement * x][col + colIncrement * x] != '_'
+          && data[row+x*rowIncrement][col + colIncrement * x] != word.charAt(x)){
             return false;
           }
         }
@@ -133,14 +135,15 @@ public class WordSearch{
     public String toString(){
       String output = "";
       for (int x = 0; x < data.length; x++){
-        output += "[";
+        output += "|";
         for (int y = 0; y < data[x].length; y++){
           output += data[x][y];
           output += " ";
         }
-        output += "]";
+        output += "|";
         output += "\n";
       }
+      output += "Words: ";
       for (int x = 0; x < wordsToAdd.size(); x++){
         output += wordsToAdd.get(x);
       }
