@@ -2,7 +2,6 @@ import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 
 public class Driver{
-  // int rows, int cols, String fileName, int Randseed, boolean key
   public static void main(String[] args) {
 
     if (args.length < 3){
@@ -23,9 +22,6 @@ public class Driver{
         catch(NumberFormatException f){
           System.out.println("The first two numbers are the rows and columns, so they must be integers");
         }
-        // if (!(args[2] instanceof String)){
-            // System.out.println("The third parameter is the name of the text file you wish to use for the wordsearch, so it must be a string");
-        // }
         try{
           Integer.parseInt(args[3]);
         }
@@ -36,9 +32,6 @@ public class Driver{
     }
     else{
       if (args.length == 5){
-          // if (!(args[2] instanceof String)){
-              // System.out.println("The third parameter is the name of the text file you wish to use for the wordsearch, so it must be a string");
-          // }
           try{
             Integer.parseInt(args[3]);
           }
@@ -69,7 +62,6 @@ public class Driver{
       }
     }
     if (args.length == 3){
-      // int rows, int cols, String fileName, int Randseed, boolean key
       Random randgen = new Random();
       int seed = randgen.nextInt();
       try{
