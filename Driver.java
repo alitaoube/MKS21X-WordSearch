@@ -32,7 +32,7 @@ public class Driver{
           Integer.parseInt(args[3]);
         }
         catch(NumberFormatException g){
-          System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer");
+          System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648.");
         }
       }
     }
@@ -42,7 +42,7 @@ public class Driver{
             Integer.parseInt(args[3]);
           }
           catch(NumberFormatException g){
-            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648");
+            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648.");
           }
         try{
           if (args[4].equals("key")){
