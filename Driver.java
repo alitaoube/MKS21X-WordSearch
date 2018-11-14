@@ -10,9 +10,15 @@ public class Driver{
     }
     else{
       if (args.length == 3){
+        try{
           WordSearch test = new WordSearch(Integer.parseInt(args[0]),
           Integer.parseInt(args[1]), args[2]);
           System.out.println(test.toString()); //fix this so that it returns version with letters added in"
+        }
+        catch (NumberFormatException e){
+          System.out.println("Please input integer for the row and columns (first two parameters)");
+        }
+
       }
     }
     if (args.length == 4){
