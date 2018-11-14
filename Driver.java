@@ -12,13 +12,16 @@ public class Driver{
       if (args.length == 3){
           WordSearch test = new WordSearch(Integer.parseInt(args[0]),
           Integer.parseInt(args[1]), args[2]);
-          System.out.println(test.toString());
+          System.out.println(test.toString()); //fix this so that it returns version with letters added in"
       }
     }
     if (args.length == 4){
       WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-      Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
-      System.out.println(test.toString());
+      Integer.parseInt(args[1]), args[2]);
+      if (args[3].equals("answer")){
+        System.out.println(test.toString()); //Keep this the same so that it returns the answer key
+      }
+      System.out.println(test.toString()); //fix this so that it returns version with letters added in"
     }
   }
 }

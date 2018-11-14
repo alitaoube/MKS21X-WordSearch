@@ -146,6 +146,7 @@ public class WordSearch{
           x--;
       }
     }
+
     /**Each row is a new line, there is a space between each letter
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
