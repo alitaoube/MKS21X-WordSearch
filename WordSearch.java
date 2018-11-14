@@ -24,6 +24,31 @@ public class WordSearch{
      *@param col is the starting width of the WordSearch
      */
 
+    public WordSearch(int rows, int cols, String fileName, int Randseed, boolean key){
+      data = new char[rows][cols];
+      try{
+        File f = new File(fileName);//can combine
+        Scanner in = new Scanner(f);//into one line
+        wordsToAdd = new ArrayList<String>();
+        wordsAdded = new ArrayList<String>();
+        while(in.hasNext()){
+          String line = in.nextLine();
+          wordsToAdd.add(line);
+        }
+        randgen = new Random(Randseed);
+        seed = Randseed;
+        clear();
+        addAllWords();
+        // if (key){
+          // fillIn();    Make this add all the random letters
+        // }
+      }
+      catch(FileNotFoundException e){
+       System.out.println("File not found: " + fileName);
+       System.exit(1);
+     }
+    }
+
     public WordSearch(int rows, int cols, String fileName){
        data = new char[rows][cols];
        try{
@@ -150,6 +175,13 @@ public class WordSearch{
       }
     }
 
+    private void fillIn(){
+      for (int x = 0; x < data.length; x++){
+        for (int y = 0; y < data[x].length; y++){
+          
+        }
+      }
+    }
     /**Each row is a new line, there is a space between each letter
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.

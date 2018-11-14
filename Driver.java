@@ -8,6 +8,17 @@ public class Driver{
       System.out.println(
       "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt");
     }
+    else if (args.length == 4){
+      WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+      Integer.parseInt(args[1]), args[2]);
+      if (args[3].equals("key")){
+        System.out.println("Test");
+        System.out.println(test.toString()); //Keep this the same so that it returns the answer key
+      }
+      else{
+        System.out.println(test.toString()); //fix this so that it returns version with letters added in"
+      }
+    }
     else{
       if (args.length == 3){
         try{
@@ -20,14 +31,6 @@ public class Driver{
         }
 
       }
-    }
-    if (args.length == 4){
-      WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-      Integer.parseInt(args[1]), args[2]);
-      if (args[3].equals("answer")){
-        System.out.println(test.toString()); //Keep this the same so that it returns the answer key
-      }
-      System.out.println(test.toString()); //fix this so that it returns version with letters added in"
     }
   }
 }
