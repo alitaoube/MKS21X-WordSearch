@@ -29,14 +29,14 @@ public class WordSearch{
        try{
          File f = new File(fileName);//can combine
          Scanner in = new Scanner(f);//into one line
-         randgen = new Random();
-         seed = randgen.nextInt();
          wordsToAdd = new ArrayList<String>();
          wordsAdded = new ArrayList<String>();
          while(in.hasNext()){
            String line = in.nextLine();
            wordsToAdd.add(line);
          }
+         randgen = new Random();
+         seed = randgen.nextInt();
          clear();
          addAllWords();
        }
@@ -50,8 +50,6 @@ public class WordSearch{
 
     public WordSearch(int rows, int cols, String fileName, int Randseed){
       data = new char[rows][cols];
-      randgen = new Random(Randseed);
-      seed = Randseed;
       try{
         File f = new File(fileName);//can combine
         Scanner in = new Scanner(f);//into one line
@@ -62,6 +60,7 @@ public class WordSearch{
           String line = in.nextLine();
           wordsToAdd.add(line);
         }
+        seed = Randseed;
       }
       catch(FileNotFoundException e){
        System.out.println("File not found: " + fileName);
@@ -121,42 +120,10 @@ public class WordSearch{
     *[ 0,-1] would add towards the left because (col - 1), with no row change
     */
 
-/*
-    private boolean addAllWords(){
-      ArrayList<String> test = new ArrayList<String>();
-      test = wordsToAdd;
-      ArrayList<Integer> used = new ArrayList<Integer>();
-      for (int x = 0; x < wordsToAdd.size(); x++){
-        for (int y = 0; y < 1000; y++){
-
-          String word = wordsToAdd.get(randgen.nextInt(wordsToAdd.size()));
-          // int z = 0;
-          int randRow = randgen.nextInt(data.length);
-          int randCol = randgen.nextInt(data[0].length);
-          int randRowIncr = randgen.nextInt() % 2;
-          int randColIncr = randgen.nextInt() % 2;
-
-          if (addWord(word,randRow,randCol,randRowIncr, randColIncr)){
-            // addWord(word,randRow,randCol,randRowIncr, randColIncr);
-            y = 1000;
-          }
-          // System.out.println(randRow + " " + randCol + " " + randRowIncr + " " + randColIncr);
-          // String word,int row, int col, int rowIncrement, int colIncrement;
-          // System.out.println(randgen.nextInt(data.length));
-          // System.out.println(randgen.nextInt(data[0].length));
-          // while(!addWord(word,randRow,randCol,randRowIncr, randColIncr) && z < 1000 && !wordsAdded.contains(word)) {
-            // z++;
-            // addWord(word,randRow,randCol,randRowIncr, randColIncr);
-          // }
-        }
-      }
-      return true;
-    }
-*/
     private void addAllWords(){
+      randgen = new Random(seed);
       ArrayList<String> words = new ArrayList<String>();
       words = wordsToAdd;
-      System.out.println(words);
         for (int x = 0; x < words.size(); x++){
           String word = words.get(randgen.nextInt(words.size()));
           int y = 0;
