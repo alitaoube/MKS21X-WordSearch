@@ -11,9 +11,14 @@ public class Driver{
     }
     else if (args.length == 4){
       try{
-        WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-        Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
-        System.out.println(test.toString());
+        if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
+          System.out.println("Please input positive number for the row and column length");
+        }
+        else{
+          WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+          Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
+          System.out.println(test.toString());
+        }
       }
       catch(NumberFormatException e){
         try{
@@ -37,18 +42,28 @@ public class Driver{
             Integer.parseInt(args[3]);
           }
           catch(NumberFormatException g){
-            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer");
+            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648");
           }
         try{
           if (args[4].equals("key")){
-            WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-            Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), true);
-            System.out.println(test.toString());
+            if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
+              System.out.println("Please input positive number for the row and column length");
+            }
+            else{
+              WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+              Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), true);
+              System.out.println(test.toString());
+            }
           }
           else{
-            WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-            Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
-            System.out.println(test.toString());
+            if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
+              System.out.println("Please input positive number for the row and column length");
+            }
+            else{
+              WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+              Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
+              System.out.println(test.toString());
+            }
           }
         }
         catch (NumberFormatException e){
