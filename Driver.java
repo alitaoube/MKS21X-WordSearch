@@ -15,5 +15,10 @@ public class Driver{
           System.out.println(test.toString());
       }
     }
+    if (args.length == 4){
+      WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+      Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+      System.out.println(test.toString());
+    }
   }
 }
