@@ -93,6 +93,7 @@ public class WordSearch{
         }
     }
   }
+
     if (args.length > 5){
       System.out.println("Too many parameters: the maximum number of useful parameters is 5.");
     }
@@ -210,6 +211,14 @@ public class WordSearch{
             int randCol = randgen.nextInt(data[0].length);
             int randRowIncr = randgen.nextInt() % 2;
             int randColIncr = randgen.nextInt() % 2;
+
+            while (data.length + word.length() * randRowIncr > data.length || data.length + word.length() * randRowIncr < 0 ||
+            data[randRow].length + word.length() * randColIncr > data[randRow].length || data[randRow].length + word.length() * randColIncr < 0){
+              randRow = randgen.nextInt(data.length);
+              randCol = randgen.nextInt(data[0].length);
+              randRowIncr = randgen.nextInt() % 2;
+              randColIncr = randgen.nextInt() % 2;
+            }
 
             int z = 0;
             while (words.contains(word) && z < 1000){
