@@ -123,7 +123,10 @@ public class WordSearch{
     private void addAllWords(){
       randgen = new Random(seed);
       ArrayList<String> words = new ArrayList<String>();
-      words = wordsToAdd;
+      for (int x = 0; x < wordsToAdd.size(); x++){
+        String word = wordsToAdd.get(x).toUpperCase();
+        words.add(word);
+      }
         for (int x = 0; x < words.size(); x++){
           String word = words.get(randgen.nextInt(words.size()));
           int y = 0;
