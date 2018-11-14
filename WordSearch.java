@@ -273,7 +273,9 @@ public class WordSearch{
       output += "Words: ";
       for (int x = 0; x < wordsAdded.size(); x++){
         output += wordsAdded.get(x);
-        output += ", ";
+        if (x + 1 != wordsAdded.size()){
+          output += ", ";
+        }
       }
       output += "\n" + "Seed: " + seed;
       return output;
