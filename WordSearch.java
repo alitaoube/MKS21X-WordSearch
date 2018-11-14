@@ -40,6 +40,9 @@ public class WordSearch{
         if (!key){
           fillIn();    //Make this add all the random letters
         }
+        else{
+          removeUnder();
+        }
       }
       catch(FileNotFoundException e){
        System.out.println("File not found: " + fileName);
@@ -135,6 +138,16 @@ public class WordSearch{
       if (data[x][y] == '_' || data[x][y] == ' '){
         data[x][y] = alphabet[randgen.nextInt(alphabet.length)];
       }
+        }
+      }
+    }
+
+    private void removeUnder(){
+      for (int x = 0; x < data.length; x++){
+        for (int y = 0; y < data[x].length; y++){
+          if (data[x][y] == '_'){
+            data[x][y] = ' ';
+          }
         }
       }
     }
