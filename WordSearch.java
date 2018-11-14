@@ -16,8 +16,6 @@ public class WordSearch{
     //all words that were successfully added get moved into wordsAdded.
     private ArrayList<String>wordsAdded;
 
-
-
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param row is the starting height of the WordSearch
@@ -39,7 +37,7 @@ public class WordSearch{
         seed = Randseed;
         clear();
         addAllWords();
-        if (key){
+        if (!key){
           fillIn();    //Make this add all the random letters
         }
       }
@@ -131,7 +129,7 @@ public class WordSearch{
 
     private void fillIn(){
       char[] alphabet = new char[]{
-      'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+      'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
       for (int x = 0; x < data.length; x++){
         for (int y = 0; y < data[x].length; y++){
       if (data[x][y] == '_' || data[x][y] == ' '){
