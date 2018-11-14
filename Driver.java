@@ -2,6 +2,7 @@ import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 
 public class Driver{
+  // int rows, int cols, String fileName, int Randseed, boolean key
   public static void main(String[] args) {
 
     if (args.length < 3){
@@ -10,27 +11,34 @@ public class Driver{
     }
     else if (args.length == 4){
       WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-      Integer.parseInt(args[1]), args[2]);
-      if (args[3].equals("key")){
-        System.out.println("Test");
-        System.out.println(test.toString()); //Keep this the same so that it returns the answer key
-      }
-      else{
-        System.out.println(test.toString()); //fix this so that it returns version with letters added in"
-      }
+      Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
+      System.out.println(test.toString());
     }
     else{
-      if (args.length == 3){
+      if (args.length == 5){
         try{
-          WordSearch test = new WordSearch(Integer.parseInt(args[0]),
-          Integer.parseInt(args[1]), args[2]);
-          System.out.println(test.toString()); //fix this so that it returns version with letters added in"
+          if (args[4].equals("key")){
+            WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+            Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), true);
+            System.out.println(test.toString());
+          }
+          else{
+            WordSearch test = new WordSearch(Integer.parseInt(args[0]),
+            Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), false);
+            System.out.println(test.toString());
+          }
         }
         catch (NumberFormatException e){
           System.out.println("Please input integer for the row and columns (first two parameters)");
         }
-
       }
+    }
+    if (args.length == 3){
+      // int rows, int cols, String fileName, int Randseed, boolean key
+      Random randgen = new Random();
+      int seed = randgen.nextInt();
+      WordSearch test = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], seed, false);
+      System.out.println(test.toString());
     }
   }
 }

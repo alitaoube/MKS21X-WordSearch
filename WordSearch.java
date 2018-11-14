@@ -39,60 +39,14 @@ public class WordSearch{
         seed = Randseed;
         clear();
         addAllWords();
-        // if (key){
-          // fillIn();    Make this add all the random letters
-        // }
+        if (key){
+          fillIn();    //Make this add all the random letters
+        }
       }
       catch(FileNotFoundException e){
        System.out.println("File not found: " + fileName);
        System.exit(1);
      }
-    }
-
-    public WordSearch(int rows, int cols, String fileName){
-       data = new char[rows][cols];
-       try{
-         File f = new File(fileName);//can combine
-         Scanner in = new Scanner(f);//into one line
-         wordsToAdd = new ArrayList<String>();
-         wordsAdded = new ArrayList<String>();
-         while(in.hasNext()){
-           String line = in.nextLine();
-           wordsToAdd.add(line);
-         }
-         randgen = new Random();
-         seed = randgen.nextInt();
-         clear();
-         addAllWords();
-       }
-       catch(FileNotFoundException e){
-        System.out.println("File not found: " + fileName);
-        System.exit(1);
-      }
-    }
-
-
-
-    public WordSearch(int rows, int cols, String fileName, int Randseed){
-      data = new char[rows][cols];
-      try{
-        File f = new File(fileName);//can combine
-        Scanner in = new Scanner(f);//into one line
-        // randgen = new Random(Randseed);
-        wordsToAdd = new ArrayList<String>();
-        wordsAdded = new ArrayList<String>();
-        while(in.hasNext()){
-          String line = in.nextLine();
-          wordsToAdd.add(line);
-        }
-        seed = Randseed;
-      }
-      catch(FileNotFoundException e){
-       System.out.println("File not found: " + fileName);
-       System.exit(1);
-      }
-      clear();
-      addAllWords();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -176,9 +130,13 @@ public class WordSearch{
     }
 
     private void fillIn(){
+      char[] alphabet = new char[]{
+      'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
       for (int x = 0; x < data.length; x++){
         for (int y = 0; y < data[x].length; y++){
-          
+      if (data[x][y] == '_' || data[x][y] == ' '){
+        data[x][y] = alphabet[randgen.nextInt(alphabet.length)];
+      }
         }
       }
     }
