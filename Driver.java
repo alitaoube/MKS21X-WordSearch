@@ -86,5 +86,8 @@ public class Driver{
         }
     }
   }
+  if (args.length > 5){
+    System.out.println("Too many parameters: the maximum number of useful parameters is 5.");
+  }
 }
 }
