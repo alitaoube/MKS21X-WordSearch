@@ -45,7 +45,7 @@ public class WordSearch{
         }
       }
       catch(FileNotFoundException e){
-       System.out.println("File not found: " + fileName);
+       System.out.println("File not found: " + fileName + ". Please input a file that exists in this directory to use as the words for this wordsearch.");
        System.exit(1);
      }
     }

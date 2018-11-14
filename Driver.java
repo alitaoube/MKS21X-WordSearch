@@ -7,7 +7,7 @@ public class Driver{
 
     if (args.length < 3){
       System.out.println(
-      "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt");
+      "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. You may also include a seed to view a previous puzzle, and include key to see the answers");
     }
     else if (args.length == 4){
       try{
