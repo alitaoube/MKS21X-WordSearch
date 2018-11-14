@@ -1,6 +1,7 @@
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 
+//MAKE IT SO THAT IT DOES NOT CRASH WHEN YOU INPUT A NEGATIVE NUMBER FOR ARRAYSIZE
 public class Driver{
   public static void main(String[] args) {
 
