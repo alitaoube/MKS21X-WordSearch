@@ -3,7 +3,6 @@ import java.io.*; //file, filenotfoundexception
 
 public class WordSearch{
   public static void main(String[] args) {
-
     if (args.length < 3){
       System.out.println(
       "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. You may also include a seed to view a previous puzzle, and include key to see the answers");
@@ -12,6 +11,9 @@ public class WordSearch{
       try{
         if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
           System.out.println("Please input positive number for the row and column length");
+        }
+        else if (Integer.parseInt(args[3]) > 1000 || Integer.parseInt(args[3]) < 0){
+          System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
         }
         else{
           WordSearch test = new WordSearch(Integer.parseInt(args[0]),
@@ -28,10 +30,15 @@ public class WordSearch{
           System.out.println("The first two numbers are the rows and columns, so they must be integers");
         }
         try{
-          Integer.parseInt(args[3]);
+          if (Integer.parseInt(args[3]) > 0 && Integer.parseInt(args[3]) < 10000){
+            Integer.parseInt(args[3]);
+          }
+          else{
+            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
+          }
         }
         catch(NumberFormatException g){
-          System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648.");
+          System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000.");
         }
       }
     }
@@ -41,10 +48,13 @@ public class WordSearch{
             Integer.parseInt(args[3]);
           }
           catch(NumberFormatException g){
-            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between -2,147,483,648 and 2,147,483,648.");
+            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
           }
         try{
-          if (args[4].equals("key")){
+          if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 1000) {
+            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
+          }
+          else if (args[4].equals("key")){
             if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
               System.out.println("Please input positive number for the row and column length");
             }
@@ -78,7 +88,7 @@ public class WordSearch{
     }
     if (args.length == 3){
       Random randgen = new Random();
-      int seed = randgen.nextInt();
+      int seed = java.lang.Math.abs(randgen.nextInt() % 10001);
       try{
         WordSearch test = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], seed, false);
         System.out.println(test.toString());
