@@ -45,20 +45,22 @@ public class WordSearch{
     else{
       if (args.length == 5){
           try{
-            Integer.parseInt(args[3]);
+            Integer.parseInt(args[0]);
+            Integer.parseInt(args[1]);
           }
           catch(NumberFormatException g){
-            System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
+            System.out.println("The first two numbers are the rows and columns, so they must be integers");
           }
         try{
-          if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 10000) {
+          if (Integer.parseInt(args[3]) < 0 || Integer.parseInt(args[3]) > 10000) {
             System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
           }
-          else if (args[4].equals("key")){
+          else if (args[4].equals("key")) {
             if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
               System.out.println("Please input positive number for the row and column length");
             }
             else{
+              System.out.println("Hellos");
               WordSearch test = new WordSearch(Integer.parseInt(args[0]),
               Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), true);
               System.out.println(test.toString());
@@ -77,8 +79,13 @@ public class WordSearch{
         }
         catch (NumberFormatException e){
           try{
-            Integer.parseInt(args[0]);
-            Integer.parseInt(args[1]);
+            if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 10000) {
+              System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
+            }
+            else{
+              Integer.parseInt(args[0]);
+              Integer.parseInt(args[1]);
+            }
           }
           catch(NumberFormatException f){
             System.out.println("Please input integer for the row and columns (first two parameters)");
