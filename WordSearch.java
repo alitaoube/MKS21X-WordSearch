@@ -55,12 +55,11 @@ public class WordSearch{
           if (Integer.parseInt(args[3]) < 0 || Integer.parseInt(args[3]) > 10000) {
             System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
           }
-          else if (args[4].equals("key")) {
+          else if (args[4].equals("key") && Integer.parseInt(args[3]) > 0 && Integer.parseInt(args[3]) < 10000) {
             if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
               System.out.println("Please input positive number for the row and column length");
             }
             else{
-              System.out.println("Hellos");
               WordSearch test = new WordSearch(Integer.parseInt(args[0]),
               Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), true);
               System.out.println(test.toString());
@@ -108,6 +107,9 @@ public class WordSearch{
         catch(NumberFormatException f){
           System.out.println("The first two numbers are the rows and columns, so they must be integers");
         }
+    }
+    catch(NegativeArraySizeException e){
+      System.out.println("Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. You may also include a seed to view a previous puzzle, and include key to see the answers");
     }
   }
 
