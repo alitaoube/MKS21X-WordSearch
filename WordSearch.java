@@ -12,7 +12,7 @@ public class WordSearch{
         if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
           System.out.println("Please input positive number for the row and column length");
         }
-        else if (Integer.parseInt(args[3]) > 1000 || Integer.parseInt(args[3]) < 0){
+        else if (Integer.parseInt(args[3]) > 10000 || Integer.parseInt(args[3]) < 0){
           System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
         }
         else{
@@ -51,7 +51,7 @@ public class WordSearch{
             System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
           }
         try{
-          if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 1000) {
+          if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 10000) {
             System.out.println("The fourth number is the seed of a previous puzzle if you would like to see it again, so it must be an integer between 0 and 10000");
           }
           else if (args[4].equals("key")){
