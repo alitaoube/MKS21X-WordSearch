@@ -5,17 +5,17 @@ public class WordSearch{
   public static void main(String[] args) {
     if (args.length < 3){
       System.out.println(
-      "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+      "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
     }
     else if (args.length == 4){
       try{
         if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
           System.out.println(
-          "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+          "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
         }
         else if (Integer.parseInt(args[3]) > 10000 || Integer.parseInt(args[3]) < 0){
           System.out.println(
-          "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+          "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
         }
         else{
           WordSearch test = new WordSearch(Integer.parseInt(args[0]),
@@ -30,7 +30,7 @@ public class WordSearch{
         }
         catch(NumberFormatException f){
           System.out.println(
-          "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+          "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
         }
         try{
           if (Integer.parseInt(args[3]) > 0 && Integer.parseInt(args[3]) < 10000){
@@ -38,12 +38,12 @@ public class WordSearch{
           }
           else{
             System.out.println(
-            "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+            "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
           }
         }
         catch(NumberFormatException g){
           System.out.println(
-          "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+          "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
         }
       }
     }
@@ -55,17 +55,17 @@ public class WordSearch{
           }
           catch(NumberFormatException g){
             System.out.println(
-            "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+            "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
           }
         try{
           if (Integer.parseInt(args[3]) < 0 || Integer.parseInt(args[3]) > 10000) {
             System.out.println(
-            "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+            "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
           }
           else if (args[4].equals("key") && Integer.parseInt(args[3]) > 0 && Integer.parseInt(args[3]) < 10000) {
             if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
               System.out.println(
-              "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+              "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
             }
             else{
               WordSearch test = new WordSearch(Integer.parseInt(args[0]),
@@ -76,7 +76,7 @@ public class WordSearch{
           else{
             if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0){
               System.out.println(
-              "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+              "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
             }
             else{
               WordSearch test = new WordSearch(Integer.parseInt(args[0]),
@@ -89,7 +89,7 @@ public class WordSearch{
           try{
             if (Integer.parseInt(args[3]) < 0 && Integer.parseInt(args[3]) > 10000) {
               System.out.println(
-              "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+              "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
             }
             else{
               Integer.parseInt(args[0]);
@@ -98,7 +98,7 @@ public class WordSearch{
           }
           catch(NumberFormatException f){
             System.out.println(
-            "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+            "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
           }
         }
       }
@@ -117,12 +117,12 @@ public class WordSearch{
         }
         catch(NumberFormatException f){
           System.out.println(
-          "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+          "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
         }
     }
     catch(NegativeArraySizeException e){
       System.out.println(
-      "Please input the dimensions and the name of the text file. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
+      "Please input the dimensions and the name of a text file in this directory. i.e. java WordSearch xx yy words.txt. The first two numbers must be positive as they are the row and column lengths. You may also include a seed to view a previous puzzle, and include \"key\" to see the answers");
     }
   }
 
@@ -266,17 +266,16 @@ public class WordSearch{
       }
     }
 
-    private void fillIn(){
-      char[] alphabet = new char[]{
-      'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-      for (int x = 0; x < data.length; x++){
-        for (int y = 0; y < data[x].length; y++){
-      if (data[x][y] == '_' || data[x][y] == ' '){
-        data[x][y] = alphabet[randgen.nextInt(alphabet.length)];
-      }
-        }
-      }
+private void fillIn(){
+  for (int x = 0; x < data.length; x++){
+    for (int y = 0; y < data[x].length; y++){
+  if (data[x][y] == '_' || data[x][y] == ' '){
+    data[x][y] = (char)('A' + (randgen.nextInt(13)+13));
+  }
     }
+  }
+}
+
 
     private void removeUnder(){
       for (int x = 0; x < data.length; x++){
